@@ -14,7 +14,10 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
-app.use(layouts);
+app.use('/img', express.static(__dirname + '/public/img'));
+app.use('/js', express.static(__dirname + '/public/js'));
+
+// app.use(layouts);
 // secret: What we actually will be giving the user on our site as a session cookie
 // resave: Save the session even if it's modified, make this false
 // saveUninitialized: If we have a new session, we save it, therefore making that true
@@ -49,9 +52,22 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
+
+
+
+// const newsRouter = require('./routes/news');
+// app.use ('/', newsRouter) 
+app.use('/news', require('./routes/news'))
+
+
+
+const router = require('./routes/auth');
+
 app.use('/auth', require('./routes/auth'));
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
-  console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
+  console.log(`You're listening to the smooth sounds of port ${PORT}`);
 });
+
 module.exports = server;
+// module.exports = router;
