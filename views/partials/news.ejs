@@ -5,10 +5,21 @@
     </head>
 <h1>hello</h1>
     <body>
-
-
-
-
+        <div class="wrapper">
+            <div class="news">
+                <% if(articles != null) { %>
+                <% articles.forEach(function(article, index) { %>
+                    <a href="<%- article.url %>" class="news__card">
+                        <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
+                        <h2><%- article.title %></h2>
+                        <p><%- article.description %></p>
+                    </a>
+                <% }) %>
+                <% } else { %>
+                    No posts found.
+                <% } %>
+            </div>
+        </div>  
     </body>
 
 </html>
