@@ -55,19 +55,20 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 
 
-// const newsRouter = require('./routes/news');
-// app.use ('/', newsRouter) 
-app.use('/news', require('./routes/news'))
+const newsRouter = require('./routes/news');
+app.use ('/news', newsRouter) 
+"app.use('/news', require('./routes/news'))"
 
 
 
 const router = require('./routes/auth');
-
 app.use('/auth', require('./routes/auth'));
+
+
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`You're listening to the smooth sounds of port ${PORT}`);
 });
 
 module.exports = server;
-// module.exports = router;
+module.exports = router;
