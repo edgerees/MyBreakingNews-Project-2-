@@ -16,9 +16,9 @@ router.get('/', async(req, res) => {
             console.log(err.response.status)
             console.log(err.response.headers)
             res.render('news', { articles : null })
-        } else if(err.requiest) {
+        } else if(err.request) {
             res.render('news', { articles : null })
-            console.log(err.requiest)
+            console.log(err.request)
         } else {
             res.render('news', { articles : null })
             console.error('Error', err.message)

@@ -1,0 +1,32 @@
+nav ul li {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: .3em;
+}
+
+h1 {
+  color: chartreuse;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #f6f6f6;
+}
+
+img { max-width: 50%; }
+h2 { font-size: 1.6rem; }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+    background-color: #10555A;
+    margin-bottom: 10px;
+}
+
+.wrapper { padding: 0 1rem }
+
+
