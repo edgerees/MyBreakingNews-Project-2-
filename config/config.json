@@ -2,21 +2,21 @@
   "development": {
     "username": "postgres",
     "password":"Washington12@",
-    "database": "express_auth_development",
+    "database": "up2date_development",          
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password":"Washington12@",
-    "database": "express_auth_test",
+    "database": "up2date_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password":"Washington12@",
-    "database": "express_auth_production",
+    "database": "up2date_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

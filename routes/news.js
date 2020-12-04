@@ -28,3 +28,5 @@ router.get('/', async(req, res) => {
 
 module.exports = router;
 
+
+// sequelize model:create --name favorite --attributes firstName:string,lastName:string,age:integer,email:strin

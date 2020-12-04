@@ -12,7 +12,9 @@
                     <a href="<%- article.url %>" class="news__card">
                         <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
                         <h2><%- article.title %></h2>
-                        <p><%- article.description %></p>
+                        <p><%- article.description %></p> 
+                        <p><%- article.source.name %></p>
+                        <p><%- article.publishedAt %></p>
                     </a>
                 <% }) %>
                 <% } else { %>
