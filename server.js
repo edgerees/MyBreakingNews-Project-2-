@@ -53,6 +53,7 @@ app.get('/', (req, res) => {
   res.render('index', { alerts: res.locals.alerts });
 });
 
+//use this to make sure user is logged in.
 app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });

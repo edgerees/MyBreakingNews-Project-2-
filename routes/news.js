@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
+const axios= require('axios');
+const db = require('../models');
 require('dotenv').config();
 const API_KEY = process.env.API_KEY;
 
@@ -26,7 +27,7 @@ router.get('/', async(req, res) => {
     } 
 })
 
+
+
 module.exports = router;
 
-
-// sequelize model:create --name favorite --attributes firstName:string,lastName:string,age:integer,email:strin
