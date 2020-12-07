@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   </head>
   <body>
-    <%- include('partials/alerts') %>
-    <header>
-      <nav>
-        <ul>
+  
+    <header> 
+      <nav class="login"> 
+        <ul><%- include('partials/alerts') %> <br>
           <% if (!currentUser) { %>
             <li><a href="/auth/signup">Signup</a></li>
             <li><a href="/auth/login">Login</a></li>
@@ -23,7 +23,7 @@
       </nav>
 
     </header>
-    <img src="/img/logoReflection.png" class="logo">
+    
     <%- body %>
   </body>
 </html>

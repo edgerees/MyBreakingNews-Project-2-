@@ -1,11 +1,17 @@
 const db = require('./models');
 
 db.article.create({
-  title: 'United States'
+  title: 'this article',
+  description: 'hello',
+  urlToImage: 'todo.png'
 }).then(function(art) {
-  console.log('Created: ', art.name)
+  console.log('Created: ', art.title)
 })
 
 db.article.findAll().then(function(art) {
-  console.log('Found: ', art.name)
+  console.log('Found: ', art.title)
 })
+
+
+
+

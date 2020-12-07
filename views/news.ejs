@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
-    <head>
-   <title> Up2Date</title>
-    </head>
-<h1>Top Headlines</h1>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Up2Date</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  </head>
+
     <body>
+        <header class="header">
+            <div class="header">Top Headlines</div>
+            <%- include('./partials/search.ejs') %>
+        </header>
         <div class="wrapper">
             <div class="news">
                 <% if(articles != null) { %>
@@ -14,8 +22,16 @@
                         <h2><%- article.title %></h2>
                         <p><%- article.description %></p> 
                         <p><%- article.source.name %></p>
-                        <p><%- article.publishedAt %></p>
+                        <!-- <p><%- article.publishedAt %></p> -->
+                         <form method="POST" action="/userArticles">
+    <input type="hidden" id="articleTitle" name="articleTitle" value="<%= article.title %>">
+    <input type="hidden" id="articleDescription" name="articleDescription" value="<%= article.description %>">
+    <input type="hidden" id="articleImage" name="articleImage" value="<%= article.urlToImage %>">
+    <input type="submit" class="btn btn-primary" value="Read later">
+  </form>
                     </a>
+
+                    
                 <% }) %>
                 <% } else { %>
                     No posts found.
@@ -23,5 +39,8 @@
             </div>
         </div>  
     </body>
+    
 
 </html>
+
+

@@ -10,7 +10,9 @@ const bodyParser = require('body-parser')
 
 // isLoggedIn middleware
 const isLoggedIn = require('./middleware/isLoggedIn');
+const router = require('./routes/news');
 
+app.use('/', router)
 app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use('/css', express.static(__dirname +'public/css'));
