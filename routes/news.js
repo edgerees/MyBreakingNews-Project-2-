@@ -19,7 +19,7 @@ router.get('/news', async(req, res) => {
     try {
         const newsAPI = await axios.get(`http://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)       
         // console.log(newsAPI.data)
-        res.render('news', {articles: newsAPI.data.articles})
+        res.render('news', { articles : newsAPI.data.articles})
     } catch (err) {
         if(err.response) {
             console.log(err.response.data)
@@ -36,12 +36,13 @@ router.get('/news', async(req, res) => {
     } 
 })
 
-router.post('/', async(req, res) => {
-    let search = req.params.search
+router.get('/newsSearch', async(req, res) => {
+   let search = req.query.search
+    console.log(req.query.search)
     try {
         const newsAPI = await axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
-        res.render('newsSearch', { articles : newsAPI.data })
-        console.log({ articles : newsAPI.data });
+        res.render('newsSearch', { articles : newsAPI.data.articles})
+        // console.log({ articles : newsAPI.data.articles});
     } catch (err) {
         if(err.response) {
             res.render('newsSearch', { articles : null })
@@ -58,12 +59,11 @@ router.post('/', async(req, res) => {
     } 
 })
 
-router.get('userArticles', isLoggedIn, (req, res) => {
+router.get('userArticles',  (req, res) => {
     db.user.findOne({
       where: { id: req.user.id },
       include: db.article
   
-      
     }).then((user) => {
     // db.article.findAll
       if (!user) throw Error()
@@ -82,7 +82,7 @@ router.get('userArticles', isLoggedIn, (req, res) => {
     })
   })
   
-  router.post('userArticles', isLoggedIn, (req, res) => {
+  router.post('userArticles', (req, res) => {
     db.user.findOne({
       where: { id: req.user.id }
     }).then((user) => {
@@ -92,7 +92,7 @@ router.get('userArticles', isLoggedIn, (req, res) => {
         },
         defaults: {
           title: req.body.Title,
-          urlToImage: req.body.UrlToImage
+          urlToImage: req.body.urlToImage
         }
       }).then((articleReport) => {
         const article = articleReport[0]
