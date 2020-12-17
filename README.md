@@ -1,3 +1,3 @@
-# MyBreakingNews-Project-2-
-Website that pulls headlines from major news outlets around the web all in one place. 
-# Up2Date
+### THIS IS NOT MY FINAL PROJECT PLEASE SEE....
+
+## [https://github.com/edgerees/up2date.git](https://github.com/edgerees/up2date.git)
